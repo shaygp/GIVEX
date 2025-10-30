@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <defs>
+    <style>
+      .letter { fill: #ffffff; }
+      .background { fill: #000000; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect class="background" width="32" height="32" rx="4"/>
+
+  <!-- Letter G -->
+  <g class="letter">
+    <path d="M 20 8 C 17 6 14 6 11 8 C 8 10 7 13 7 16 C 7 19 8 22 11 24 C 14 26 17 26 20 24 L 20 16 L 16 16 L 16 18 L 18 18 L 18 21 C 16 21 14 21 12 20 C 10 18 10 14 12 12 C 14 11 16 11 18 12 L 20 12 Z"/>
+  </g>
+</svg>

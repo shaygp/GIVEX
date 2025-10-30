@@ -1,0 +1,46 @@
+{
+  "name": "mcp_ai_agents",
+  "version": "1.0.0",
+  "engines": {
+    "node": "22.x"
+  },
+  "main": "index.js",
+  "bin": {
+    "mcp_ai_agents": "bin/cli.js"
+  },
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "build:single": "tsc src/server/index.ts --outDir build --target es2020 --moduleResolution node --esModuleInterop --allowSyntheticDefaultImports --skipLibCheck",
+    "build": "tsc",
+    "start": "node build/main.js",
+    "dev": "ts-node src/main.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shaygp/givex.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shaygp/givex/issues"
+  },
+  "homepage": "https://github.com/shaygp/givex#readme",
+  "description": "",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.17.3",
+    "express": "^5.1.0",
+    "install": "^0.13.0",
+    "nanoid": "^5.1.5",
+    "npm": "^11.5.2",
+    "axios": "^1.6.0",
+    "dotenv": "^16.3.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "@types/minimatch": "^6.0.0",
+    "@types/node": "^24.2.1",
+    "typescript": "^5.9.2"
+  }
+}
