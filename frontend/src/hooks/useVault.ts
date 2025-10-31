@@ -175,6 +175,16 @@ export const useVault = () => {
       if (!contracts) return { success: false, error: 'Failed to get contracts' };
 
       const { vaultContract } = contracts;
+      
+      // Add debugging to check if vaultContract exists and has the method
+      if (!vaultContract) {
+        return { success: false, error: 'Vault contract not initialized' };
+      }
+      
+      if (!vaultContract.depositLiquidity) {
+        return { success: false, error: 'depositLiquidity method not found on contract' };
+      }
+
       const amountWei = ethers.parseEther(amount);
 
       // Check if approval is needed
@@ -191,7 +201,7 @@ export const useVault = () => {
       // Execute deposit
       // Simulate first to catch minDeposit or other reverts
       try {
-        await vaultContract.callStatic.depositLiquidity(amountWei);
+        await vaultContract.depositLiquidity.staticCall(amountWei);
       } catch (e: any) {
         return { success: false, error: e?.message || 'Deposit simulation failed' };
       }
@@ -203,10 +213,19 @@ export const useVault = () => {
 
       // Parse events to get shares received
       let sharesReceived = '0';
-      if (receipt.events) {
-        const depositEvent = receipt.events.find((e: any) => e.event === 'LiquidityAdded');
+      if (receipt.logs) {
+        // Updated to use receipt.logs instead of receipt.events
+        const depositEvent = receipt.logs.find((log: any) => {
+          try {
+            const parsed = vaultContract.interface.parseLog(log);
+            return parsed?.name === 'LiquidityAdded';
+          } catch {
+            return false;
+          }
+        });
         if (depositEvent) {
-          sharesReceived = ethers.formatEther(depositEvent.args.shares);
+          const parsed = vaultContract.interface.parseLog(depositEvent);
+          sharesReceived = ethers.formatEther(parsed.args.shares);
         }
       }
 

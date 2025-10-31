@@ -154,7 +154,7 @@ The project consists of **3 major components**:
 - **Explorer:** https://hashscan.io/testnet
 
 ### 1. GIVEXVault.sol - ERC4626 Liquidity Vault
-**Address:** `0x8D03Cab8D66D923ae267f9e6727721aFDBdd25E2`
+**Address:** `0xdb06d0518a9409bD05201A3311ABAbe19eA5020e`
 
 An ERC4626-compliant tokenized vault for liquidity management with AI agent integration.
 
@@ -182,7 +182,7 @@ function totalAssets() public view override returns (uint256)
 - `onlyAuthorizedAgent`: Move assets between vault and trading wallets
 
 ### 2. ImpactPool.sol - Charitable Donation Pool
-**Address:** `0xB57E12b2F6d5C36D03a9c48EA45f9ea6b971878e`
+**Address:** `0x7a1A4A625b4F3C24577B86Dc1BeaAebb11a2E603`
 
 Manages charitable donations from profit allocations with transparent distribution.
 
@@ -200,6 +200,8 @@ function issueCertificate(uint256 donationIndex) external returns (uint256 token
 ```
 
 ### 3. ImpactCertificate.sol - ERC721 NFT Certificates
+**Address:** `0x9101a4145029fE83E790C8361C44C79525B81Cb8`
+
 Issues NFT certificates for charitable donations with on-chain metadata.
 
 ### 4. TradeSettlement.sol - Cross-Chain Escrow System
@@ -224,7 +226,7 @@ function settleCrossChainTrade(/* complex params */) external
 ```
 
 ### Token Addresses
-- **WHBAR (Wrapped HBAR):** `0x66B8244b08be8F4Cec1A23C5c57A1d7b8A27189D`
+- **Mock Token (WHBAR):** `0x5e4f9e6358C2c379D7dE53302Dc7726D498388EB`
 - **USDT (Testnet):** `0x62bcF51859E23cc47ddc6C3144B045619476Be92`
 
 ---
@@ -359,7 +361,7 @@ Environment variables (`.env`):
 ```bash
 ACCOUNT_ADDRESS=0x877664Ae1f1ca217977562A04592eCbCADb2Ca58
 PRIVATE_KEY=<agent_private_key>
-VAULT_CONTRACT_ADDRESS=0x8D03Cab8D66D923ae267f9e6727721aFDBdd25E2
+VAULT_CONTRACT_ADDRESS=0xdb06d0518a9409bD05201A3311ABAbe19eA5020e
 MARKET_MAKER_API=http://localhost:8001
 BOT_MARKET_MAKER_API=http://localhost:8000
 ```
@@ -708,12 +710,12 @@ mcpClientApi.status()
 
 ```typescript
 export const CONTRACTS = {
-  VAULT_ADDRESS: "0x8D03Cab8D66D923ae267f9e6727721aFDBdd25E2",
-  WHBAR_ADDRESS: "0x66B8244b08be8F4Cec1A23C5c57A1d7b8A27189D",
-  IMPACT_CERTIFICATE_ADDRESS: "0xB57E12b2F6d5C36D03a9c48EA45f9ea6b971878e",
-  IMPACT_POOL_ADDRESS: "0xB57E12b2F6d5C36D03a9c48EA45f9ea6b971878e",
+  VAULT_ADDRESS: "0xdb06d0518a9409bD05201A3311ABAbe19eA5020e",
+  WHBAR_ADDRESS: "0x5e4f9e6358C2c379D7dE53302Dc7726D498388EB",
+  IMPACT_CERTIFICATE_ADDRESS: "0x9101a4145029fE83E790C8361C44C79525B81Cb8",
+  IMPACT_POOL_ADDRESS: "0x7a1A4A625b4F3C24577B86Dc1BeaAebb11a2E603",
   SETTLEMENT_ADDRESS: "0xAf8D430930565973b4Fd692324B20B3449a78baD",
-  HBAR_TOKEN: "0x66B8244b08be8F4Cec1A23C5c57A1d7b8A27189D",
+  HBAR_TOKEN: "0x5e4f9e6358C2c379D7dE53302Dc7726D498388EB",
   USDT_TOKEN: "0x62bcF51859E23cc47ddc6C3144B045619476Be92"
 };
 
